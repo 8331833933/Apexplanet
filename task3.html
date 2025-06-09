@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Styling and JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #006666;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #008080;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #005555;
+    }
+
+    #joke {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+
+    .quiz-container {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .quiz-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      #joke {
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Advanced Styling and JavaScript</h1>
+
+  <!-- ✅ Fetch Data from API -->
+  <div id="joke">Click below to get a random joke!</div>
+  <button onclick="fetchJoke()">Get Joke</button>
+
+  <!-- ✅ Interactive Quiz -->
+  <div class="quiz-container" id="quiz">
+    <h2 id="question">Question goes here</h2>
+    <div class="options" id="options"></div>
+    <div id="result" style="margin-top:10px; font-weight: bold;"></div>
+    <button onclick="nextQuestion()">Next Question</button>
+  </div>
+
+  <script>
+    async function fetchJoke() {
+      const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+      const data = await res.json();
+      document.getElementById("joke").innerText = `${data.setup} 🤔\n${data.punchline}`;
+    }
+    const quizData = [
+      {
+        question: "What does HTML stand for?",
+        options: ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "Hyper Text Marketing Language", "Hyper Transfer Markup Leveler"],
+        answer: "Hyper Text Markup Language"
+      },
+      {
+        question: "Which language runs in a web browser?",
+        options: ["Java", "C", "Python", "JavaScript"],
+        answer: "JavaScript"
+      },
+      {
+        question: "What does CSS stand for?",
+        options: ["Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets", "Creative Style System"],
+        answer: "Cascading Style Sheets"
+      }
+    ];
+
+    let currentQuiz = 0;
+
+    function loadQuiz() {
+      const quiz = quizData[currentQuiz];
+      document.getElementById("question").innerText = quiz.question;
+      const optionsContainer = document.getElementById("options");
+      const result = document.getElementById("result");
+      result.innerText = "";
+
+      optionsContainer.innerHTML = "";
+      quiz.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => checkAnswer(option);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selected) {
+      const correct = quizData[currentQuiz].answer;
+      const result = document.getElementById("result");
+      if (selected === correct) {
+        result.innerText = "✅ Correct!";
+        result.style.color = "green";
+      } else {
+        result.innerText = `❌ Wrong! Correct answer is: ${correct}`;
+        result.style.color = "red";
+      }
+    }
+
+    function nextQuestion() {
+      currentQuiz = (currentQuiz + 1) % quizData.length;
+      loadQuiz();
+    }
+    loadQuiz();
+  </script>
+
+</body>
+</html>
