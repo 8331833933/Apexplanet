@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elegant Interiors | Home Decor Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #121212;
+      --accent-color: #d4af37; /* Gold */
+      --bg-color: #1e1e1e;
+      --card-bg: #2b2b2b;
+      --text-color: #f5f5f5;
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1600585154245-621c346fc7d4?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
+      height: 90vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-family: var(--font-head);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    nav {
+      background-color: var(--primary-color);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .product {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input, textarea {
+      background-color: #333;
+      color: white;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #c39e34;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Elegant Interiors</h1>
+    <p>Curating luxury furniture and decor to elevate your space with timeless elegance.</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Products -->
+  <section id="products">
+    <h2>Luxury Collection</h2>
+    <div class="products">
+      <div class="product">
+        <img loading="lazy" src="https://www.purbafurniture.ca/wp-content/uploads/2021/01/Sofa-Sets.png" alt="Sofa Set" />
+        <h3>Velvet Sofa Set</h3>
+      </div>
+      <div class="product">
+        <img loading="lazy" src="https://i5.walmartimages.com/asr/2dab7098-f92b-46b2-ba9f-75fe13779054_2.66b4d23a8c6c97695ed87b44f3a3c7ab.jpeg" alt="Modern Chair" />
+        <h3>Designer Lounge Chair</h3>
+      </div>
+      <div class="product">
+        <img loading="lazy" src="https://images.furnituredealer.net/img/products/coaster/color/lexton_101561-b.jpg" alt="Dining Table" />
+        <h3>Solid Wood Dining Table</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Elegant Interiors</h2>
+    <p>At Elegant Interiors, we craft spaces that define luxury living. Our curated selection of premium furniture and modern decor brings warmth, beauty, and sophistication into every room. Designed for those who appreciate timeless elegance and fine craftsmanship.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Elegant Interiors. Crafted with elegance and love.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thank you! Your message has been received.");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
